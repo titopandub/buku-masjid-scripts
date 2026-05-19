@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.env.script
+.token_cache.json
+*.csv
