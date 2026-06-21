@@ -25,10 +25,13 @@ from pathlib import Path
 
 
 def parse_amount(value: str) -> int:
-    """Convert '10,000.00' to 10000."""
+    """Convert '10,000.00' or '10,000.00-' to 10000."""
     if not value or not value.strip():
         return 0
-    return int(float(value.replace(",", "")))
+    v = value.strip().replace(",", "")
+    if v.endswith("-"):
+        v = "-" + v[:-1]
+    return int(float(v))
 
 
 def parse_date(waktu: str) -> str:
